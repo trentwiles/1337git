@@ -31,7 +31,7 @@ def proxy():
     if flask_image_proxy:
         return redirect(flask_image_proxy_url + request.args.get("image"))
     else: # request.args.get
-        return "false"
+        return redirect(request.args.get("image"))
 
 if __name__ == "__main__":
     app.run(debug=True)
