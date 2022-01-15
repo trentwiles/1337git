@@ -12,7 +12,7 @@ flask_image_proxy_url = "https://www.example.com/" #INCLUDE THE SLASH AT THE END
 
 @app.route("/")
 def main():
-    return "1337 Git: Yeah its Github with trackers and crap"
+    return "1337 Git: Yeah its Github without trackers and crap"
 
 @app.route("/user/<user>")
 def user(user):
