@@ -30,7 +30,12 @@ def user(user):
 @app.route("/<un>/<repo>")
 def repo(un, repo):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo)
-    return un + repo #test
+    stars = o.json["stargazers_count"]
+    lang = o.json["language"]
+    watchers = o.json["watchers_count"]
+    desc = o.json["description"]
+    forks_count = o.json["forks"]
+    return render_template("repo.html", stars = stars, lang = lang, watchers = watchers, desc = desc, forks_count = forks_count, un = un, repo = repo)
 
 @app.route("/image-proxy")
 def proxy():
