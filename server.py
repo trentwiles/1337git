@@ -27,6 +27,11 @@ def user(user):
     image = good_looking_api["avatar_url"]
     return render_template("user.html", user = user, country = country, link = url, bio = bio, followers=followers, following=following, image=image)
     
+@app.route("/<un>/<repo>")
+def repo(un, repo):
+    o = requests.get("https://api.github.com/repos/" + un + "/" + repo)
+    return un + repo #test
+
 @app.route("/image-proxy")
 def proxy():
     if flask_image_proxy:
