@@ -14,7 +14,7 @@ flask_image_proxy_url = "https://www.example.com/" #INCLUDE THE SLASH AT THE END
 def main():
     return "1337 Git: Yeah its Github without trackers and crap"
 
-@app.route("/user/<user>")
+@app.route("/<user>")
 def user(user):
     api = requests.get("https://api.github.com/users/" + user, headers={"User-agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0"})
     good_looking_api = api.json()
