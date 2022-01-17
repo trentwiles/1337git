@@ -1,16 +1,64 @@
 <!DOCTYPE html>
 <head>
-
+	<link
+		rel="stylesheet"
+		href="{{ url_for('static', filename='global.css') }}"
+		type="text/css" />
+	<link
+		rel="stylesheet"
+		href="{{ url_for('static', filename='user.css') }}"
+		type="text/css" />
 </head>
 <body>
-    <h2> {{ user }} </h2>
-    Website: {{ link }}
-    <br>
-    Location: {{ country }}
-    <br>
-    Bio: {{ bio }}
-    <br>
-    Followers: {{ followers }} - Following: {{ following }}
-    <br>
-    <img src=/image-proxy?image={{ image }} />
+	<div class="user-content">
+		<div class="user">
+			<img class="user-avatar" src=/image-proxy?image={{ image }} />
+			<h1 class="user-username">{{ user }}</h1>
+			<p class="user-bio">{{ bio }}</p>
+			<div class="user-info">
+				<span class="user-website">
+					<ion-icon name="link-outline"></ion-icon>
+					<span>
+						<a
+							href="https://{{ link }}"
+							target="_blank"
+							rel="noopener noreferrer">
+							{{ link }}</a
+						></span
+					>
+				</span>
+				<br />
+				<span class="user-location">
+					<ion-icon name="location-outline"></ion-icon>
+					<span
+						><a
+							href="https://www.google.com/maps/search/?api=1&query={{ country }}"
+							target="_blank"
+							rel="noopener noreferrer"
+							>{{ country }}</a
+						></span
+					>
+				</span>
+				<br />
+				<span class="user-people"></span>
+					<ion-icon name="people-outline"></ion-icon>
+					<span><b>{{ followers }}</b> followers · <b>{{ following }}</b> following</span>
+				</span>
+        <br />
+        <br />
+        <span class="user-github-ext">
+          <ion-icon name="open-outline"></ion-icon>
+          <a href="https://github.com/{{ user }}" target="_blank" rel="noopener noreferrer" class="gray">View @{{ user }} on GitHub.com</a>
+          
+        </span>
+			</div>
+			<br />
+		</div>
+	</div>
+	<script
+		type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script
+		nomodule
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

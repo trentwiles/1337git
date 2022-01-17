@@ -1,0 +1,52 @@
+/* global styles */
+/* don't add page-specific styles here */
+/* unless you wanna die from confusion and frustration */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css');
+
+:root {
+  --background: #0d1117;
+  --text: #fff;
+  --muted: #8b949e;
+  --link: #58a6ff;
+}
+
+body {
+  background-color: #0d1117;
+  color: #fff;
+  font-family: "Inter", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+ion-icon {
+  vertical-align: middle;
+  font-size: 22px;
+  height: 22px;
+  width: 22px;
+}
+
+a {
+  color: var(--link);
+}
+
+a.gray {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+a.gray:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+/* global mobile styles */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+    margin: 0.5em;  
+  }
+}

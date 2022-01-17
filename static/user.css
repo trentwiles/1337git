@@ -1,0 +1,49 @@
+.user {
+  margin: 0px auto;
+  max-width: 800px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.user-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.user-username {
+  font-family: "Hack", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
+  margin-bottom: 10px;
+}
+
+.user-bio {
+  margin-top: 0px;
+}
+
+.user-info {
+  vertical-align: middle;
+}
+
+.user-website {
+  vertical-align: middle;
+}
+
+.user-github-ext, .user-github-ext > a {
+  vertical-align: middle;
+}
+
+span {
+  vertical-align: middle;
+}
+
+/* mobile styles */
+@media only screen and (max-width: 600px) {
+  .user-avatar {
+    height: 100px;
+    width: 100px;
+  }
+}
