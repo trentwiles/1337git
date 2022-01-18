@@ -40,6 +40,24 @@ span {
   vertical-align: middle;
 }
 
+.user-readme {
+  margin-bottom: 100px;
+}
+
+.user-readme-title {
+  font-family: "Hack", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 10px;
+}
+
+.user-readme img {
+  max-width: 100%;
+}
+
+.user-readme pre {
+  overflow: auto;
+}
+
 /* mobile styles */
 @media only screen and (max-width: 600px) {
   .user-avatar {
