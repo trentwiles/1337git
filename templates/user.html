@@ -54,9 +54,20 @@
 			<br />
 		</div>
     <div class="user-readme">
-      {{ readme}}
+			<p class="user-readme-title"><a href="/{{ user }}/{{ user }}/" class="gray">{{ user }}</a>/README.md</p>
+			{% autoescape false %}
+      	{{ readme }}
+			{% endautoescape %}
     </div>
 	</div>
+	<script>
+		function b64DecodeUnicode(str) {
+			// Going backwards: from bytestream, to percent-encoding, to original string.
+			return decodeURIComponent(atob(str).split('').map(function(c) {
+				return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+			}).join(''));
+		}
+	</script>
 	<script
 		type="module"
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

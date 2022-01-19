@@ -43,8 +43,12 @@ a.gray:hover {
   text-decoration: underline;
 }
 
+pre, code {
+  font-family: "Hack", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
+}
+
 /* global mobile styles */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   body {
     font-size: 14px;
     margin: 0.5em;  
