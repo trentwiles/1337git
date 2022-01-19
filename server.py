@@ -54,6 +54,12 @@ def repo(un, repo):
     forks_count = o.json["forks"]
     return render_template("repo.html", stars = stars, lang = lang, watchers = watchers, desc = desc, forks_count = forks_count, un = un, repo = repo)
 
+@app.route("/<un>/<repo>/issues")
+def repo(un, repo):
+    o = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/issues")
+    data = o.json
+    return render_template("repo.html", issues = data)
+
 @app.route("/image-proxy")
 def proxy():
     if flask_image_proxy:
