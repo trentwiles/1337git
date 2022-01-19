@@ -23,7 +23,7 @@ flask_image_proxy_url = "https://www.example.com/" #INCLUDE THE SLASH AT THE END
 
 @app.route("/")
 def main():
-    return "1337 Git: Yeah its Github without trackers and crap"
+    return render_template("home.html")
 
 @app.route("/<user>")
 def user(user):
@@ -46,7 +46,8 @@ def user(user):
 @app.route("/<un>/<repo>")
 def repo(un, repo):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo)
-    stars = o.json["stargazers_count"]
+    #test = o.json
+    #stars = test["stargazers_count"]
     lang = o.json["language"]
     watchers = o.json["watchers_count"]
     desc = o.json["description"]
