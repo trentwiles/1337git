@@ -9,3 +9,19 @@ Forks: {{ forks_count }}
 <br><br>
 
 Description: <i>{{ desc }}</i>
+
+Files: <br>
+
+{% for file in json %}
+
+{% if file.type == "dir" %}
+
+    <p>Directory: {{ file.name }}</p>
+
+{% else %}
+
+    <p>{{ file.name }}</p>
+
+{% endif %}
+
+{% endfor %}

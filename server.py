@@ -46,19 +46,21 @@ def user(user):
 @app.route("/<un>/<repo>")
 def repo(un, repo):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo)
+    contents = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/contents/")
+    json = contents.json()
     #test = o.json
     #stars = test["stargazers_count"]
-    lang = o.json["language"]
-    watchers = o.json["watchers_count"]
-    desc = o.json["description"]
-    forks_count = o.json["forks"]
-    return render_template("repo.html", stars = stars, lang = lang, watchers = watchers, desc = desc, forks_count = forks_count, un = un, repo = repo)
+    #lang = o.json["language"]
+    #watchers = o.json["watchers_count"]
+    #desc = o.json["description"]
+    #forks_count = o.json["forks"]
+    return render_template("repo.html", un = un, repo = repo, json = json)
 
 @app.route("/<un>/<repo>/issues")
-def repo(un, repo):
+def issues(un, repo):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/issues")
     data = o.json
-    return render_template("repo.html", issues = data)
+    return render_template("issues.html", issues = data)
 
 @app.route("/image-proxy")
 def proxy():
