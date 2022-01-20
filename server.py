@@ -48,13 +48,15 @@ def repo(un, repo):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo)
     contents = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/contents/")
     json = contents.json()
+    if contents.status_code == 404:
+        return "404: Not found" # maybe add a template here in the future
     #test = o.json
     #stars = test["stargazers_count"]
     #lang = o.json["language"]
     #watchers = o.json["watchers_count"]
     #desc = o.json["description"]
     #forks_count = o.json["forks"]
-    return render_template("repo.html", un = un, repo = repo, json = json)
+    return render_template("repo.html", un = un, repo = repo, json = json, o = o.json())
 
 @app.route("/<un>/<repo>/issues")
 def issues(un, repo):

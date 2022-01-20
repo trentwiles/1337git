@@ -1,14 +1,14 @@
-<h3>{{ un }}/{{ repo }}</h3>
+<h3><a href={{un}}>{{ un }}</a>/{{ repo }}</h3>
 <br>
-Stars: {{ stars }}
+Stars: {{ o.stargazers_count }}
 <br>
-Watchers: {{ watchers }}
+Watchers: {{ o.watchers_count }}
 <br>
-Forks: {{ forks_count }}
+Forks: {{ o.forks_count }}
 
 <br><br>
 
-Description: <i>{{ desc }}</i>
+Description: <i>{{ o.description }}</i><br>
 
 Files: <br>
 
@@ -20,7 +20,7 @@ Files: <br>
 
 {% else %}
 
-    <p>{{ file.name }}</p>
+    <p><a href={{file.download_url}}>{{ file.name }}</a></p>
 
 {% endif %}
 
