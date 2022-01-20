@@ -50,12 +50,6 @@ def repo(un, repo):
     json = contents.json()
     if contents.status_code == 404:
         return "404: Not found" # maybe add a template here in the future
-    #test = o.json
-    #stars = test["stargazers_count"]
-    #lang = o.json["language"]
-    #watchers = o.json["watchers_count"]
-    #desc = o.json["description"]
-    #forks_count = o.json["forks"]
     return render_template("repo.html", un = un, repo = repo, json = json, o = o.json())
 
 @app.route("/<un>/<repo>/issues")
