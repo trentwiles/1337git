@@ -57,7 +57,7 @@ def repo(un, repo):
 def issues(un, repo):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/issues")
     data = o.json
-    return render_template("issues.html", issues = data)
+    return render_template("issues.html", issues = data, un = un, repo = repo)
 
 @app.route("/image-proxy")
 def proxy():
