@@ -1,3 +1,4 @@
+from http.client import OK
 from flask import Flask
 from flask import render_template
 import requests
@@ -64,6 +65,11 @@ def proxy():
         return redirect(flask_image_proxy_url + request.args.get("image"))
     else: # request.args.get
         return redirect(request.args.get("image"))
+
+
+@app.route("/robots.txt")
+def bots():
+    return render_template("robots.txt")
 
 if __name__ == "__main__":
     app.run(debug=True)
