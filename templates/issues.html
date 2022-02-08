@@ -11,6 +11,9 @@
 </head>
 <body>
     <h3><a href=/{{un}}>{{ un }}</a>/{{ repo }}</h3>
+    {% for issue in issues %}
 
-    {{ issues }}
+    <a href=/{{un}}/{{repo}}/issues/{{issue.number}} >{{ issue.title }}</a> <br>
+
+    {% endfor %}
 </body>
