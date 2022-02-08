@@ -53,8 +53,8 @@
 			</div>
 			<br />
 		</div>
-    <div class="user-readme">
-			<p class="user-readme-title"><a href="/{{ user }}/{{ user }}/" class="gray">{{ user }}</a>/README.md</p>
+    <div class="user-readme"> <!-- TODO: Don't show this section unless the README repo is a thing... -->
+			<p class="user-readme-title"><a href="/{{ user }}/{{ user }}" class="gray">{{ user }}</a>/README.md</p>
 			{% autoescape false %}
       	{{ readme }}
 			{% endautoescape %}
