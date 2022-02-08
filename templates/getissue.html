@@ -11,4 +11,9 @@
 </head>
 <body>
     <h3><a href=/{{un}}>{{ un }}</a>/{{ repo }}</h3>
+    Posted by <a href=/{{issues.user.login}}>{{issues.user.login}}</a><br>
     {{ issues.title }}
+    <br>
+    {{ issues.body }}
+    <br>
+    <a href=/{{un}}/{{repo}}/issues>View all issues</a>
