@@ -67,10 +67,7 @@ def getissues(un, repo, id):
 
 @app.route("/image-proxy")
 def proxy():
-    if flask_image_proxy:
-        return redirect(flask_image_proxy_url + request.args.get("image"))
-    else: # request.args.get
-        return redirect(request.args.get("image"))
+    return redirect("https://external-content.duckduckgo.com/iu/?u=" + request.args.get("image"))
 
 
 @app.route("/robots.txt")
