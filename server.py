@@ -42,8 +42,15 @@ def user(user):
     followers =  good_looking_api["followers"]
     following = good_looking_api["following"]
     image = good_looking_api["avatar_url"]
-    return render_template("user.html", user = user, country = country, link = url, bio = bio, followers=followers, following=following, image=image, readme = final_readme)
-    
+    try:
+        if request.args.get('tab') == "repos":
+            o = requests.get("https://api.github.com/users/" + user + "/repos")
+            data = o.json()
+            return render_template("user-repos.html", repos = data, user = user)
+        else:
+            return render_template("user.html", user = user, country = country, link = url, bio = bio, followers=followers, following=following, image=image, readme = final_readme)
+    except:
+        return render_template("user.html", user = user, country = country, link = url, bio = bio, followers=followers, following=following, image=image, readme = final_readme)
 @app.route("/<un>/<repo>")
 def repo(un, repo):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo)
