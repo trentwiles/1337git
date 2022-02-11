@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+	<link
+		rel="stylesheet"
+		href="{{ url_for('static', filename='global.css') }}"
+		type="text/css" />
+	<link
+		rel="stylesheet"
+		href="{{ url_for('static', filename='user.css') }}"
+		type="text/css" />
+</head>
+<body>
+    <h3><a href=/{{un}}>{{ un }}</a>/{{ repo }}</h3>
+    {% for star in stars %}
+
+    <a href=/{{star.login}} >{{ star.login }}</a> <br>
+
+    {% endfor %}
+</body>

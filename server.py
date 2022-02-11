@@ -59,6 +59,12 @@ def issues(un, repo):
     data = o.json()
     return render_template("issues.html", issues = data, un = un, repo = repo)
 
+@app.route("/<un>/<repo>/stargazers")
+def stars(un, repo):
+    o = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/stargazers")
+    data = o.json()
+    return render_template("stars.html", stars = data, un = un, repo = repo)
+
 @app.route("/<un>/<repo>/issues/<id>")
 def getissues(un, repo, id):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/issues/" + id)
