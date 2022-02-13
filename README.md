@@ -9,3 +9,8 @@ A fast, private frontend for Github.
  - Watchers page
  - Forks page
  - Fix explore page to show real trending repos
+
+## UI fixes
+ - Files on the repo page
+ - Stargazers page
+ - Explore page
