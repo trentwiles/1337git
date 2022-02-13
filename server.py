@@ -78,6 +78,12 @@ def getissues(un, repo, id):
     data = o.json()
     return render_template("getissue.html", issues = data, un = un, repo = repo, id = id)
 
+@app.route("/explore")
+def explore():
+    o = requests.get("https://api.github.com/search/repositories?q=sort=stars&order=desc&per_page=100")
+    data = o.json()
+    return render_template("trending.html", data = data)
+
 @app.route("/image-proxy")
 def proxy():
     return redirect("https://external-content.duckduckgo.com/iu/?u=" + request.args.get("image"))

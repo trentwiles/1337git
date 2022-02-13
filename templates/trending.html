@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+	<link
+		rel="stylesheet"
+		href="{{ url_for('static', filename='global.css') }}"
+		type="text/css" />
+	<link
+		rel="stylesheet"
+		href="{{ url_for('static', filename='user.css') }}"
+		type="text/css" />
+</head>
+<body>
+<h1>Trending</h1>
+{% for repo in data %}
+
+{{ repo.name }}
+<i>{{ repo.description }}</i>
+
+{% endfor %}
+</body>
