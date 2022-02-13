@@ -82,7 +82,7 @@ def getissues(un, repo, id):
 def explore():
     o = requests.get("https://api.github.com/search/repositories?q=sort=stars&order=desc&per_page=100")
     data = o.json()
-    return render_template("trending.html", data = data)
+    return render_template("trending.html", items = data["items"])
 
 @app.route("/image-proxy")
 def proxy():

@@ -11,10 +11,10 @@
 </head>
 <body>
 <h1>Trending</h1>
-{% for repo in data %}
+{% for repo in items %}
 
-{{ repo.name }}
-<i>{{ repo.description }}</i>
+<a href=/{{repo.full_name}}><strong>{{ repo.name }}</strong></a> - <a href=/{{repo.full_name}}/stargazers>{{ repo.stargazers_count }} Stars</a><br>
+<i>{{ repo.description }}</i><br><br>
 
-{% endfor %}
+{% endfor %}}
 </body>
