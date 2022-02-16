@@ -80,7 +80,7 @@ def getissues(un, repo, id):
 
 @app.route("/explore")
 def explore():
-    o = requests.get("https://api.github.com/search/repositories?q=sort=stars&order=desc&per_page=100")
+    o = requests.get("https://api.github.com/search/repositories?q=code&sort=stars&order=desc&per_page=100")
     data = o.json()
     return render_template("trending.html", items = data["items"])
 
