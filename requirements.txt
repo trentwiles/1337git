@@ -1,3 +1,4 @@
 requests
 flask
 markdown-it-py
+importlib-metadata
