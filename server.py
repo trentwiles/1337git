@@ -1,6 +1,7 @@
 from http.client import OK
 from flask import Flask
 from flask import render_template
+from importlib_metadata import version
 import requests
 from flask import request
 from flask import redirect
@@ -18,13 +19,11 @@ md = (
 
 app = Flask(__name__)
 
-# Decide if you want an image proxy or not
-flask_image_proxy = False
-flask_image_proxy_url = "https://www.example.com/" #INCLUDE THE SLASH AT THE END!!! THIS IS IMPORTANT!!!
+app_version = "beta-1.0.0"
 
 @app.route("/")
 def main():
-    return render_template("home.html")
+    return render_template("home.html", version = app_version)
 
 @app.route("/<user>")
 def user(user):
