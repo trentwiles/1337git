@@ -1,2 +1,5 @@
 User-agent: *
 Disallow: /
+
+# To avoid spamming Google and other search engines with mirrored content from GitHub, we have
+# not allowed any bots to crawl the site.

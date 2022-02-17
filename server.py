@@ -8,7 +8,7 @@ from flask import redirect
 from markdown_it import MarkdownIt
 from mdit_py_plugins.front_matter import front_matter_plugin
 from mdit_py_plugins.footnote import footnote_plugin
-
+from flask import Response
 
 md = (
     MarkdownIt()
@@ -30,7 +30,10 @@ def user(user):
     api = requests.get("https://api.github.com/users/" + user, headers={"User-agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0"})
     try:
         readme = requests.get("https://raw.githubusercontent.com/" + user + "/" + user+ "/master/README.md")
-        final_readme = md.render(readme.text)
+        if readme == "404: Not Found":
+            final_readme = "This user has choose not to set up a readme."
+        else:
+            final_readme = md.render(readme.text)
     except:
         final_readme = "This user has choose not to set up a readme."
     good_looking_api = api.json()
@@ -90,7 +93,7 @@ def proxy():
 
 @app.route("/robots.txt")
 def bots():
-    return render_template("robots.txt")
+    return Response(render_template("robots.txt"), mimetype='text/plain')
 
 if __name__ == "__main__":
     app.run(debug=True)
