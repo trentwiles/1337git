@@ -23,8 +23,9 @@ Issues: <a href=/{{un}}/{{repo}}/issues>{{o.open_issues_count}}</a>
 
 Description: <i>{{ o.description }}</i><br>
 
-Files: <br>
+Files: <br><br>
 
+<div class="files">
 {% for file in json %}
 
 {% if file.type == "dir" %}
@@ -38,3 +39,4 @@ Files: <br>
 {% endif %}
 
 {% endfor %}
+</div>

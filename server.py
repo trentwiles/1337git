@@ -37,8 +37,11 @@ def user(user):
     except:
         final_readme = "This user has choose not to set up a readme."
     good_looking_api = api.json()
-    country = good_looking_api["location"]
-    name = good_looking_api["name"] # this doesn't work at the moment :(
+    try:
+        country = good_looking_api["location"]
+    except:
+        country = "Unknown"
+
     url = good_looking_api["blog"]
     bio = good_looking_api["bio"]
     followers =  good_looking_api["followers"]
@@ -78,7 +81,7 @@ def stars(un, repo):
 def getissues(un, repo, id):
     o = requests.get("https://api.github.com/repos/" + un + "/" + repo + "/issues/" + id)
     data = o.json()
-    return render_template("getissue.html", issues = data, un = un, repo = repo, id = id)
+    return render_template("getissue.html", issues = data, un = un, repo = repo, id = id, render=md.render)
 
 @app.route("/explore")
 def explore():

@@ -14,6 +14,6 @@
     Posted by <a href=/{{issues.user.login}}>{{issues.user.login}}</a><br>
     {{ issues.title }}
     <br>
-    {{ issues.body }}
+    {{ render(issues.body) | safe }}
     <br>
     <a href=/{{un}}/{{repo}}/issues>View all issues</a>

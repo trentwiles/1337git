@@ -54,3 +54,8 @@ pre, code {
     margin: 0.5em;  
   }
 }
+
+div.files {
+  border:1px solid blue;
+  padding-left: 5%;
+}
