@@ -1,4 +1,6 @@
 # 1337 Git
+*This is a legacy project, and no more updates will be made. Thank you to all those who helped and downloaded.*
+<hr>
 
 A fast, private frontend for Github.
 
